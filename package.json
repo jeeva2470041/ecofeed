@@ -1,0 +1,13 @@
+    {
+  "name": "ecofood-workspace",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install --prefix backend && npm install --prefix frontend",
+    "start-backend": "npm --prefix backend run dev",
+    "start-frontend": "npm --prefix frontend run dev",
+    "start-all": "concurrently \"npm run start-backend\" \"npm run start-frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
