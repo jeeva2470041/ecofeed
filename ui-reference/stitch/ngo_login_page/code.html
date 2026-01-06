@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoFood - NGO Login</title>
+<!-- Material Symbols Link -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                        "surface-dark": "#1c271d",
+                        "surface-border": "#28392b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark min-h-screen flex flex-col antialiased selection:bg-primary selection:text-background-dark">
+<div class="flex flex-1 h-screen overflow-hidden">
+<!-- Left Section: Login Form -->
+<div class="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-12 xl:px-32 py-10 overflow-y-auto relative z-10 bg-background-light dark:bg-background-dark">
+<!-- Logo -->
+<div class="absolute top-8 left-6 sm:left-12 xl:left-32 flex items-center gap-2 text-background-dark dark:text-white mb-10">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">eco</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">EcoFood</h2>
+</div>
+<div class="w-full max-w-[480px] mx-auto flex flex-col gap-8 mt-16 lg:mt-0">
+<!-- Header Section -->
+<div class="flex flex-col gap-4">
+<!-- Role Badge -->
+<div class="flex">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/10 border border-primary/20 pl-3 pr-4">
+<span class="material-symbols-outlined text-primary text-sm">volunteer_activism</span>
+<p class="text-primary text-xs font-bold uppercase tracking-wider">NGO Partner Portal</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<h1 class="text-neutral-900 dark:text-white text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em]">
+                            Welcome Back, <span class="text-primary">Changemaker.</span>
+</h1>
+<p class="text-neutral-500 dark:text-[#9db9a1] text-base lg:text-lg font-normal leading-normal">
+                            Log in to manage food rescues and distribute hope.
+                        </p>
+</div>
+</div>
+<!-- Form Section -->
+<form class="flex flex-col gap-5" onsubmit="event.preventDefault();">
+<!-- Email Field -->
+<div class="flex flex-col gap-2">
+<label class="text-neutral-900 dark:text-white text-sm font-semibold leading-normal" for="email">Email Address</label>
+<div class="relative">
+<div class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-[#5a7a5f]">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<input class="form-input flex w-full rounded-xl border border-neutral-300 dark:border-surface-border bg-white dark:bg-surface-dark focus:border-primary focus:ring-1 focus:ring-primary h-14 pl-12 pr-4 placeholder:text-neutral-400 dark:placeholder:text-[#5a7a5f] text-neutral-900 dark:text-white text-base transition-colors" id="email" placeholder="partner@ngo.org" type="email" value=""/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<label class="text-neutral-900 dark:text-white text-sm font-semibold leading-normal" for="password">Password</label>
+<a class="text-primary hover:text-primary/80 text-sm font-semibold transition-colors" href="#">Forgot Password?</a>
+</div>
+<div class="relative">
+<div class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-[#5a7a5f]">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<input class="form-input flex w-full rounded-xl border border-neutral-300 dark:border-surface-border bg-white dark:bg-surface-dark focus:border-primary focus:ring-1 focus:ring-primary h-14 pl-12 pr-12 placeholder:text-neutral-400 dark:placeholder:text-[#5a7a5f] text-neutral-900 dark:text-white text-base transition-colors" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-[#5a7a5f] hover:text-neutral-600 dark:hover:text-white transition-colors cursor-pointer flex items-center" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="mt-2 flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-4 bg-primary hover:bg-primary/90 text-background-dark text-base font-bold leading-normal tracking-[0.015em] transition-all shadow-[0_4px_20px_-5px_rgba(19,236,55,0.4)] hover:shadow-[0_8px_25px_-5px_rgba(19,236,55,0.5)] transform active:scale-[0.98]">
+<span class="truncate">Log In to Dashboard</span>
+<span class="material-symbols-outlined ml-2 text-xl">arrow_forward</span>
+</button>
+</form>
+<!-- Footer -->
+<div class="text-center">
+<p class="text-neutral-500 dark:text-[#9db9a1] text-sm">
+                        Don't have an account yet? 
+                        <a class="text-neutral-900 dark:text-white font-bold hover:text-primary transition-colors underline decoration-2 decoration-primary/50 hover:decoration-primary underline-offset-4" href="#">Register as a Partner</a>
+</p>
+</div>
+</div>
+<!-- Copyright/Legal Footer -->
+<div class="absolute bottom-6 left-0 w-full text-center lg:text-left px-6 sm:px-12 xl:px-32">
+<p class="text-neutral-400 dark:text-[#5a7a5f] text-xs">© 2023 EcoFood Initiative. All rights reserved.</p>
+</div>
+</div>
+<!-- Right Section: Illustration/Image -->
+<div class="hidden lg:block w-1/2 relative bg-surface-dark overflow-hidden group">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" data-alt="Top down view of diverse hands sharing fresh vegetables and fruits on a wooden table" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcZALVLvp3AcSE3KSqdmJm2_A-lH9Z4yeKLK9ScOiKUysNe8-FXw1lryGd635gT4SuLG_SLuC9oxGPcLRvxyaQQjfbw9NmGcWp7Wv562c_xKOa4PSZDIAhoMcZvKc3MuigcqLd7aQ3QuZujMHSTiyb6r1M3dBRFSFfYg6FHjIVxc2f5_EItAiF5cLw-bJ0ZXbgCH4CFtSghtb8yM3Yhxr6MI85UWEL-PIT_Ng4DFsTsPln9wwhygYNA06P05qTWd39NQIdxC5b39Q');"></div>
+<!-- Overlay Gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/60 to-transparent opacity-90"></div>
+<!-- Content on Image -->
+<div class="absolute inset-0 flex flex-col justify-end p-16 pb-20">
+<div class="max-w-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#28392b]/80 backdrop-blur-md border border-[#3b543f] mb-6">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-white text-xs font-medium">1,240 Rescues Today</span>
+</div>
+<h3 class="text-white text-3xl font-bold leading-tight mb-4">Bridging the gap between abundance and need.</h3>
+<p class="text-gray-300 text-lg leading-relaxed">Join a network of over 5,000 NGOs making a measurable impact on food waste and community hunger every single day.</p>
+<div class="flex gap-4 mt-8">
+<div class="flex -space-x-3">
+<img alt="Avatar of a smiling volunteer" class="inline-block h-10 w-10 rounded-full ring-2 ring-background-dark object-cover" data-alt="Portrait of a smiling young woman volunteer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4f9Ij4s5w8AFZFabbbb35Il6jR-Wu0VoIk24RhoWM9ssrUytjYxYJRJWXRzSJdriula-89eXRZWPTACFNClpgxND8l6RUvixdoCwQNGqhv_2zVuY7E1On_t22ty-yY-slX8k82zUnCW0DF2bde1ctTap8i4NTdfK79aTECOzvI5rIJIVqy5LXRDvdi4CIvwWl3y411g8p_yv8_BujlCTnCJcjQfRW-ZJ9KZae29WC1ttitFj_E-dF0iMUy_a6yTHIAsFsZGvslzQ"/>
+<img alt="Avatar of a male volunteer" class="inline-block h-10 w-10 rounded-full ring-2 ring-background-dark object-cover" data-alt="Portrait of a young man volunteer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApfLT8KNI6w8HTIB3nrEBcmjEM7Il9isGsc0NthbMNX4uy_hJ1gjqug9LMH6eCk-50hZRzTsgwQm852moqjSoGkMSXbM6x9zYe5Ugyz_2Q-5PoD17HVSNPHFqnC5VzEhU__sDS7PKbeE8C-VVhYjhAEW_ibMriL1Xqmo__lESTXEvSJ19SN6INrA3lSGF-freQ9HDAtl47TYRelpEmZZPNbgzr3qcD_NKCLk_f1GtPg1nozJTH7dhol34zOgX9PT3UfH0sqWNC-LY"/>
+<img alt="Avatar of a volunteer" class="inline-block h-10 w-10 rounded-full ring-2 ring-background-dark object-cover" data-alt="Portrait of a smiling man with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa1N3x-HX3l6jAwT4lrypAXTMuqPjynC8hoxVtMfMOwpL0L5jN3Od9kBRisYddZY1aa1Xt01jDUoOQyZL3ZuFgvfZSAClKCGF8qZDvaM_Mz64Aj_y0D1Y6_2W51i5jI3-EapJhH5ai2k8WM8clLbEkEX9ZvieK3v1iNZrQUM8yeapOU7RqKTIdzbuSo6RioEfK6ihbCNmnGIQ54leHIoiBhGZ9w-71Fcq-CAUx8e2vC-4hjsvpcIpB6gw_t0e2gYTXNYr_TX5HxV8"/>
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-border ring-2 ring-background-dark text-xs font-bold text-white">+2k</div>
+</div>
+<div class="flex flex-col justify-center">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<span class="text-gray-400 text-xs font-medium">Trusted by communities</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoFood Admin Dashboard</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                        "surface-dark": "#111812",
+                        "card-dark": "#1A261C", // Slightly lighter than background for cards
+                        "card-lighter": "#28392b", // Used in original components
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden h-screen flex">
+<!-- Sidebar -->
+<aside class="w-64 bg-surface-dark border-r border-[#28392b] flex-shrink-0 flex flex-col h-full hidden lg:flex">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10" data-alt="EcoFood logo abstract green leaf" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwUgiuuqg4jFB-lgzXt7J6yDzrcmgKPrltW46JtJP9b-6yfJdsjtS_dRyc-uOiDTyPOKFpf8WoB_OV69BL_3GkVARagjZAq0n_TU8yLplyJkSFQnApme8bs34IQlPu8-O3neMyrTcCvEj35v5AijRMxjEd3QN8vYtsNV04HeMShEY6Cvd_PEr1rFjX8IfcHoklAmMLZXXCWh3WnNzsvKmPCFff2SHkHsU2lGBtADbDN7wStIeQ79TLEUTCpdGm9E0PoGCOE8uMFJQ");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-lg font-bold leading-tight">EcoFood Admin</h1>
+<p class="text-[#9db9a1] text-xs font-normal">System Administrator</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary/20 border border-primary/10 group" href="#">
+<span class="material-symbols-outlined text-primary icon-fill">dashboard</span>
+<p class="text-white text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-[#28392b] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9db9a1] group-hover:text-white">group</span>
+<p class="text-[#9db9a1] group-hover:text-white text-sm font-medium">Users</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-[#28392b] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9db9a1] group-hover:text-white">store</span>
+<p class="text-[#9db9a1] group-hover:text-white text-sm font-medium">Listings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-[#28392b] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9db9a1] group-hover:text-white">assessment</span>
+<p class="text-[#9db9a1] group-hover:text-white text-sm font-medium">Reports</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-[#28392b] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9db9a1] group-hover:text-white">settings</span>
+<p class="text-[#9db9a1] group-hover:text-white text-sm font-medium">Settings</p>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 border-t border-[#28392b]">
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-[#28392b] rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[#9db9a1]">logout</span>
+<p class="text-[#9db9a1] text-sm font-medium">Logout</p>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full relative overflow-hidden">
+<!-- Header -->
+<header class="flex items-center justify-between border-b border-[#28392b] bg-surface-dark/95 backdrop-blur px-6 py-4 z-10">
+<div class="flex items-center gap-4">
+<button class="lg:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="hidden md:flex flex-col">
+<h2 class="text-white text-xl font-bold leading-tight tracking-tight">Dashboard Overview</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[#9db9a1] text-xs font-medium">Home</span>
+<span class="text-[#9db9a1] text-xs">/</span>
+<span class="text-primary text-xs font-medium">Dashboard</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<!-- Search -->
+<div class="hidden md:flex items-center bg-[#28392b] rounded-lg px-3 py-2 w-64 border border-[#3a4d3d] focus-within:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-[#9db9a1] text-xl">search</span>
+<input class="bg-transparent border-none text-white text-sm focus:ring-0 w-full placeholder-[#9db9a1] ml-2 p-0" placeholder="Search data..." type="text"/>
+</div>
+<!-- Right Actions -->
+<div class="flex items-center gap-4">
+<button class="relative text-[#9db9a1] hover:text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 size-2 bg-primary rounded-full border-2 border-surface-dark"></span>
+</button>
+<div class="h-8 w-[1px] bg-[#28392b]"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-white text-sm font-medium">Jane Doe</p>
+<p class="text-[#9db9a1] text-xs">Super Admin</p>
+</div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-[#28392b]" data-alt="Portrait of admin user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAaOnSSOX842CSPjtSnho9Gzo3VibCD7oaGanCZ0TL94mplZ7xGmNzUbH2cwH-Pz4I4jHorox9k0cKZWINIS6vYiAm3TebbZo0jDcs6fe_HhQsIc_H0W34AquylDukqMUghcztI-UWuvz7_0SN98u1kgoqwcyTrSWW24LkVo7_LIHum4Se7qIi4UyZauMHL0aXNIpOv1NRHBfhf05AiYuU2aqwHU-53HhQy-tA6Qv2OdcQxdEf0ePd4nUguBFBCk91ylxfwo0c1N-c");'></div>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-6 lg:p-8 space-y-8">
+<!-- Stats Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat Card 1 -->
+<div class="bg-card-lighter p-5 rounded-xl border border-[#3a4d3d] hover:border-primary/30 transition-colors shadow-lg shadow-black/20">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-[#1a2e1d] rounded-lg">
+<span class="material-symbols-outlined text-primary">restaurant</span>
+</div>
+<span class="flex items-center text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded-full">+5%</span>
+</div>
+<p class="text-[#9db9a1] text-sm font-medium">Total Restaurants</p>
+<p class="text-white text-2xl font-bold mt-1">120</p>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-card-lighter p-5 rounded-xl border border-[#3a4d3d] hover:border-primary/30 transition-colors shadow-lg shadow-black/20">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-[#1a2e1d] rounded-lg">
+<span class="material-symbols-outlined text-primary">volunteer_activism</span>
+</div>
+<span class="flex items-center text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded-full">+2%</span>
+</div>
+<p class="text-[#9db9a1] text-sm font-medium">Total NGOs</p>
+<p class="text-white text-2xl font-bold mt-1">45</p>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-card-lighter p-5 rounded-xl border border-[#3a4d3d] hover:border-primary/30 transition-colors shadow-lg shadow-black/20">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-[#1a2e1d] rounded-lg">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+</div>
+<span class="flex items-center text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded-full">+15%</span>
+</div>
+<p class="text-[#9db9a1] text-sm font-medium">Total Food Donations</p>
+<p class="text-white text-2xl font-bold mt-1">5,200 kg</p>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-card-lighter p-5 rounded-xl border border-primary/40 relative overflow-hidden shadow-lg shadow-black/20">
+<div class="absolute -right-6 -top-6 bg-primary/10 size-32 rounded-full blur-2xl"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="p-2 bg-[#1a2e1d] rounded-lg">
+<span class="material-symbols-outlined text-primary icon-fill">soup_kitchen</span>
+</div>
+<span class="flex items-center text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded-full">+12%</span>
+</div>
+<p class="text-[#9db9a1] text-sm font-medium relative z-10">Total Meals Rescued</p>
+<p class="text-white text-2xl font-bold mt-1 relative z-10">12,400</p>
+</div>
+</div>
+<!-- Main Split Section -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+<!-- Pending Registrations (Span 2) -->
+<div class="xl:col-span-2 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-white text-lg font-bold">Pending Registrations</h3>
+<a class="text-primary text-sm hover:underline" href="#">View All</a>
+</div>
+<div class="bg-card-lighter rounded-xl border border-[#3a4d3d] overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#1a2e1d] border-b border-[#3a4d3d]">
+<th class="p-4 text-xs font-medium text-[#9db9a1] uppercase tracking-wider">Entity Name</th>
+<th class="p-4 text-xs font-medium text-[#9db9a1] uppercase tracking-wider">Type</th>
+<th class="p-4 text-xs font-medium text-[#9db9a1] uppercase tracking-wider">Date Applied</th>
+<th class="p-4 text-xs font-medium text-[#9db9a1] uppercase tracking-wider">Status</th>
+<th class="p-4 text-xs font-medium text-[#9db9a1] uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#3a4d3d]">
+<tr class="hover:bg-[#2f4232] transition-colors">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-700 bg-cover bg-center" data-alt="Green Leaf Bistro Logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAFRBFQk_ySZOLq2XvxDHn0WSy1PtiPmX_bSAJTiNITDBWVwl2ef0L40uEvJE1PFbe8PLVuoVXwnwbBF5Hir1tcHFQ-5_FzLwI5AY-Dn0f9BNJH8MqZSA_KndCr739SizQicoL0BM1H3_rQexH9QDRA_sQ1QqDlLN5qL1E6LZDIJfeQ6u4wrSzi6fgg6_e-6b_qpS38an-Nvh0H8w7n00xd6wCt5iCsnGeeap19Un6xMsk0t6srrqv8PBArP34Wxmbr0ii-2-lkTWY");'></div>
+<span class="text-white font-medium text-sm">Green Leaf Bistro</span>
+</div>
+</td>
+<td class="p-4 text-white text-sm">Restaurant</td>
+<td class="p-4 text-[#9db9a1] text-sm">Oct 24, 2023</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-400/10 text-yellow-400">Pending Review</span>
+</td>
+<td class="p-4 flex gap-2 justify-end">
+<button class="p-1 rounded hover:bg-white/10 text-[#9db9a1] hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+<button class="p-1 rounded bg-primary/20 hover:bg-primary/30 text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">check</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-[#2f4232] transition-colors">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-700 bg-cover bg-center" data-alt="Hope Kitchen Logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCoKwPpaK-JXYJnWH2t6arNevPiUWwmUFc2FJikHrGijE7n3d1zyrglg15k170bnf3_qxX1JKLeYF59tPKokyjha4c1kZDfLk_nfBqsZajFVQsjinl2zJSo5LrE6DUf0nEGKGiqaeTdODdRJLWlaREsGkjvwIFc5wzDjh4iPW1aN_hIfz7v35Yx-_xik6_8tUBwhareC0s08s-UzGcoO_C9AjknHoPe6xXUgXPaaPYX8pEbP2nzjEe6IWSPhpwJk-zfOqCIgmvxJCE");'></div>
+<span class="text-white font-medium text-sm">Hope Kitchen NGO</span>
+</div>
+</td>
+<td class="p-4 text-white text-sm">NGO</td>
+<td class="p-4 text-[#9db9a1] text-sm">Oct 23, 2023</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-400/10 text-yellow-400">Pending Review</span>
+</td>
+<td class="p-4 flex gap-2 justify-end">
+<button class="p-1 rounded hover:bg-white/10 text-[#9db9a1] hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+<button class="p-1 rounded bg-primary/20 hover:bg-primary/30 text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">check</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-[#2f4232] transition-colors">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-700 bg-cover bg-center" data-alt="Fresh Market Logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBobP7ZVw4iEHAOHyAdWlBUvXgsHJQK5T16GdlVS1djGB5-faB7Vz88qF_sUf-bZOOwqHobRa082fX2EbyML02WeRpj7fljauFoKpeuArgF9vcZ3XViiy5gXkbG_bAUlL8HsgUgpqXjfTfzfJ3IJWuazodyQqUCn370sCo2355uga5LRyKFONdBFTF81x7RQndgW26W_k9CmYpCw5O5TdTppQVeFc0Eecru3iRXxJf_xuAj0oNl6eXJuc9T6rtShlmw4_iXPTBwsjU");'></div>
+<span class="text-white font-medium text-sm">Fresh Market Plus</span>
+</div>
+</td>
+<td class="p-4 text-white text-sm">Restaurant</td>
+<td class="p-4 text-[#9db9a1] text-sm">Oct 22, 2023</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-400/10 text-red-400">Documents Missing</span>
+</td>
+<td class="p-4 flex gap-2 justify-end">
+<button class="p-1 rounded hover:bg-white/10 text-[#9db9a1] hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+<button class="p-1 rounded bg-primary/20 hover:bg-primary/30 text-primary transition-colors opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined text-lg">check</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right Column (Span 1) -->
+<div class="flex flex-col gap-6">
+<!-- System Health -->
+<div class="flex flex-col gap-4">
+<h3 class="text-white text-lg font-bold">System Health</h3>
+<div class="bg-card-lighter p-5 rounded-xl border border-[#3a4d3d] flex flex-col gap-4">
+<div class="flex items-center justify-between pb-3 border-b border-[#3a4d3d]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">dns</span>
+<span class="text-white text-sm font-medium">Server Status</span>
+</div>
+<span class="flex items-center gap-1.5 px-2 py-1 rounded bg-primary/10 text-primary text-xs font-bold">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+                                    Operational
+                                </span>
+</div>
+<!-- Stat Item -->
+<div class="space-y-1">
+<div class="flex justify-between text-xs">
+<span class="text-[#9db9a1]">CPU Load</span>
+<span class="text-white">45%</span>
+</div>
+<div class="h-1.5 w-full bg-[#1a2e1d] rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<!-- Stat Item -->
+<div class="space-y-1">
+<div class="flex justify-between text-xs">
+<span class="text-[#9db9a1]">Memory Usage</span>
+<span class="text-white">62%</span>
+</div>
+<div class="h-1.5 w-full bg-[#1a2e1d] rounded-full overflow-hidden">
+<div class="h-full bg-yellow-400 rounded-full" style="width: 62%"></div>
+</div>
+</div>
+<div class="flex items-center gap-4 pt-2">
+<div class="flex flex-col">
+<span class="text-[#9db9a1] text-xs">Latency</span>
+<span class="text-white text-sm font-semibold">24ms</span>
+</div>
+<div class="h-8 w-[1px] bg-[#3a4d3d]"></div>
+<div class="flex flex-col">
+<span class="text-[#9db9a1] text-xs">Uptime</span>
+<span class="text-white text-sm font-semibold">99.9%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity -->
+<div class="flex flex-col gap-4 flex-1">
+<div class="flex items-center justify-between">
+<h3 class="text-white text-lg font-bold">Recent Activity</h3>
+<button class="text-[#9db9a1] hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">more_horiz</span>
+</button>
+</div>
+<div class="bg-card-lighter p-5 rounded-xl border border-[#3a4d3d] flex-1">
+<ul class="space-y-6 relative">
+<!-- Vertical Line -->
+<div class="absolute left-3 top-2 bottom-2 w-0.5 bg-[#3a4d3d]"></div>
+<!-- Item 1 -->
+<li class="relative flex gap-4">
+<div class="relative z-10 flex-shrink-0 size-6 rounded-full bg-[#1a2e1d] border border-[#3a4d3d] flex items-center justify-center">
+<div class="size-2 rounded-full bg-primary"></div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-white text-sm leading-snug">New donation posted by <span class="font-semibold text-primary">Pasta Palace</span></p>
+<span class="text-[#9db9a1] text-xs">2 minutes ago</span>
+</div>
+</li>
+<!-- Item 2 -->
+<li class="relative flex gap-4">
+<div class="relative z-10 flex-shrink-0 size-6 rounded-full bg-[#1a2e1d] border border-[#3a4d3d] flex items-center justify-center">
+<div class="size-2 rounded-full bg-blue-400"></div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-white text-sm leading-snug">Donation claimed by <span class="font-semibold text-blue-400">City Shelter</span></p>
+<span class="text-[#9db9a1] text-xs">15 minutes ago</span>
+</div>
+</li>
+<!-- Item 3 -->
+<li class="relative flex gap-4">
+<div class="relative z-10 flex-shrink-0 size-6 rounded-full bg-[#1a2e1d] border border-[#3a4d3d] flex items-center justify-center">
+<div class="size-2 rounded-full bg-yellow-400"></div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-white text-sm leading-snug">User report #342 filed against listing</p>
+<span class="text-[#9db9a1] text-xs">1 hour ago</span>
+</div>
+</li>
+<!-- Item 4 -->
+<li class="relative flex gap-4">
+<div class="relative z-10 flex-shrink-0 size-6 rounded-full bg-[#1a2e1d] border border-[#3a4d3d] flex items-center justify-center">
+<div class="size-2 rounded-full bg-slate-500"></div>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-white text-sm leading-snug">System backup completed successfully</p>
+<span class="text-[#9db9a1] text-xs">4 hours ago</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer (Simple) -->
+<div class="text-center py-4 text-[#9db9a1] text-xs">
+                © 2023 EcoFood Inc. Admin Portal v2.4.0
+            </div>
+</div>
+</main>
+</body></html>

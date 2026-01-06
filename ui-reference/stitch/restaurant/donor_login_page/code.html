@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoFood - Restaurant Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased h-screen overflow-hidden">
+<div class="flex h-full w-full">
+<!-- Left Side: Illustration/Image -->
+<div class="hidden lg:flex flex-1 relative bg-background-dark items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="h-full w-full bg-cover bg-center opacity-60 mix-blend-overlay" data-alt="Fresh vegetables and fruits in a market setting representing food sharing" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAqnZRfyFaMbIJrENXsHgW1XRfXBN7Iud02nS3TsHPpicGP_JvlbLgVB9xnNnxW6h_ZSz0rI2_ZmTYBdTiXR1fckVepruHkSC6P1LWv7Jx832c4QGebBppLN_3KXPXQqEEtkhCGSpV0r2ww7nMhmU3TF9qn5VyqoUo6wseY-ozTcFVy8Z016tfB5nEC57k16FiVvuvPrPFuCTswtAPpnSZXLoaEuBfCGET2YsV8Yh5vGHhlUaNwomyWkyuoV2_HLnoHbQh_uiA07TE");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent"></div>
+</div>
+<div class="relative z-10 p-12 max-w-lg text-center">
+<div class="mb-6 flex justify-center">
+<div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20 backdrop-blur-sm text-primary">
+<span class="material-symbols-outlined" style="font-size: 32px;">volunteer_activism</span>
+</div>
+</div>
+<h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">
+                Share Food, Feed Communities
+            </h2>
+<p class="text-lg text-gray-300">
+                Join thousands of restaurants and donors making a difference. Reduce waste and help those in need with just a few clicks.
+            </p>
+</div>
+</div>
+<!-- Right Side: Login Form -->
+<div class="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24 bg-background-light dark:bg-background-dark w-full lg:w-[45%] border-l border-white/5 overflow-y-auto">
+<div class="mx-auto w-full max-w-sm lg:w-96">
+<!-- Mobile Logo (Visible on mobile only usually, but good to have) -->
+<div class="flex items-center gap-2 mb-10">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
+<span class="material-symbols-outlined text-background-dark font-bold">eco</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight dark:text-white text-gray-900">EcoFood</h1>
+</div>
+<div class="mb-8">
+<h2 class="text-3xl font-black leading-tight tracking-[-0.033em] dark:text-white text-gray-900">
+                    Restaurant Login
+                </h2>
+<p class="mt-2 text-base text-gray-600 dark:text-[#9db9a1]">
+                    Welcome back! Let's save some food today.
+                </p>
+</div>
+<div class="mt-8">
+<div class="space-y-6">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block text-sm font-medium leading-6 dark:text-white text-gray-900" for="email">
+                            Email address
+                        </label>
+<div class="relative rounded-lg shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="material-symbols-outlined text-gray-400" style="font-size: 20px;">mail</span>
+</div>
+<input class="block w-full rounded-lg border-0 py-4 pl-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-[#1c271d] dark:text-white dark:ring-[#3b543f] dark:placeholder:text-[#9db9a1] sm:text-sm sm:leading-6" id="email" name="email" placeholder="name@restaurant.com" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<label class="block text-sm font-medium leading-6 dark:text-white text-gray-900" for="password">
+                            Password
+                        </label>
+<div class="relative rounded-lg shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="material-symbols-outlined text-gray-400" style="font-size: 20px;">lock</span>
+</div>
+<input class="block w-full rounded-lg border-0 py-4 pl-10 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary dark:bg-[#1c271d] dark:text-white dark:ring-[#3b543f] dark:placeholder:text-[#9db9a1] sm:text-sm sm:leading-6" id="password" name="password" placeholder="Enter your password" type="password"/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer group">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors" style="font-size: 20px;">visibility</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary dark:bg-[#1c271d] dark:border-[#3b543f]" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-2 block text-sm text-gray-600 dark:text-[#9db9a1]" for="remember-me">Remember me</label>
+</div>
+<div class="text-sm">
+<a class="font-semibold text-primary hover:text-green-400" href="#">Forgot password?</a>
+</div>
+</div>
+<div>
+<button class="flex w-full justify-center rounded-lg bg-primary px-3 py-4 text-sm font-bold leading-6 text-[#102213] shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all shadow-[0_0_15px_rgba(19,236,55,0.3)]" type="submit">
+                            Log In
+                        </button>
+</div>
+</div>
+<div class="mt-8 relative">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-gray-200 dark:border-gray-700"></div>
+</div>
+<div class="relative flex justify-center text-sm font-medium leading-6">
+<span class="bg-background-light dark:bg-background-dark px-6 text-gray-500 dark:text-gray-400">New to EcoFood?</span>
+</div>
+</div>
+<div class="mt-6">
+<a class="flex w-full items-center justify-center gap-3 rounded-lg bg-[#2a382b] px-3 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-700 hover:bg-[#344435] transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">person_add</span>
+<span>Join as a Donor</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

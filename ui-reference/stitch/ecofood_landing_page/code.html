@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoFood - Rescue Surplus Food</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#13ec37",
+                "background-light": "#f6f8f6",
+                "background-dark": "#102213",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"],
+                "body": ["Noto Sans", "sans-serif"]
+              },
+              borderRadius: {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navbar -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-solid border-b-gray-200 dark:border-b-[#28392b] bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-4 md:px-10 lg:px-40">
+<div class="flex items-center gap-4 text-gray-900 dark:text-white">
+<div class="flex size-8 items-center justify-center rounded bg-primary text-background-dark">
+<span class="material-symbols-outlined text-2xl">eco</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">EcoFood</h2>
+</div>
+<nav class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<div class="flex items-center gap-9">
+<a class="text-gray-700 dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">About</a>
+<a class="text-gray-700 dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">How it Works</a>
+<a class="text-gray-700 dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Impact</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-background-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all shadow-[0_0_15px_rgba(19,236,55,0.3)]">
+<span class="truncate">Sign Up</span>
+</button>
+</nav>
+<!-- Mobile Menu Icon -->
+<button class="md:hidden text-gray-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col items-center">
+<!-- Hero Section -->
+<section class="w-full px-4 md:px-10 lg:px-40 py-12 md:py-20 lg:py-32 flex justify-center">
+<div class="w-full max-w-[1200px] rounded-3xl overflow-hidden relative min-h-[500px] flex items-center justify-center p-6 md:p-12 text-center" data-alt="Dark abstract gradient with subtle network connections representing food distribution" style="background: linear-gradient(rgba(16, 34, 19, 0.8), rgba(16, 34, 19, 0.9)), url('https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80'); background-size: cover; background-position: center;">
+<div class="flex flex-col gap-6 max-w-3xl z-10">
+<h1 class="text-white text-4xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
+                            Rescue Surplus Food.<br/>
+<span class="text-primary">Feed Communities.</span>
+</h1>
+<h2 class="text-gray-200 text-base md:text-lg font-normal leading-relaxed max-w-2xl mx-auto">
+                            Join the network that turns potential waste into nourishment. We connect commercial kitchens to local NGOs instantly to reduce waste and fight hunger.
+                        </h2>
+<div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+<button class="flex items-center justify-center rounded-lg h-12 px-8 bg-primary text-background-dark text-base font-bold leading-normal tracking-[0.015em] shadow-[0_0_20px_rgba(19,236,55,0.4)] hover:shadow-[0_0_30px_rgba(19,236,55,0.6)] hover:-translate-y-1 transition-all">
+<span class="material-symbols-outlined mr-2 text-xl">restaurant</span>
+<span class="truncate">Login as Restaurant</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-12 px-8 bg-transparent border-2 border-white text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-white hover:text-background-dark transition-all">
+<span class="material-symbols-outlined mr-2 text-xl">volunteer_activism</span>
+<span class="truncate">Login as NGO</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="w-full px-4 md:px-10 lg:px-40 pb-12">
+<div class="w-full max-w-[960px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col items-center md:items-start gap-2 rounded-2xl p-8 bg-white dark:bg-[#1c2e20] shadow-sm border border-gray-100 dark:border-[#28392b] group hover:border-primary/50 transition-colors">
+<div class="p-3 rounded-full bg-primary/10 text-primary mb-2">
+<span class="material-symbols-outlined text-3xl">compost</span>
+</div>
+<p class="text-gray-500 dark:text-[#9db9a1] text-lg font-medium leading-normal">Food Saved</p>
+<p class="text-gray-900 dark:text-white tracking-light text-4xl md:text-5xl font-black leading-tight">12,500+ <span class="text-2xl font-bold text-gray-400">kg</span></p>
+</div>
+<div class="flex flex-col items-center md:items-start gap-2 rounded-2xl p-8 bg-white dark:bg-[#1c2e20] shadow-sm border border-gray-100 dark:border-[#28392b] group hover:border-primary/50 transition-colors">
+<div class="p-3 rounded-full bg-primary/10 text-primary mb-2">
+<span class="material-symbols-outlined text-3xl">soup_kitchen</span>
+</div>
+<p class="text-gray-500 dark:text-[#9db9a1] text-lg font-medium leading-normal">Meals Served</p>
+<p class="text-gray-900 dark:text-white tracking-light text-4xl md:text-5xl font-black leading-tight">45,000+</p>
+</div>
+</div>
+</section>
+<!-- Feature/Process Section -->
+<section class="w-full px-4 md:px-10 lg:px-40 py-16 bg-white/50 dark:bg-[#152618]/50">
+<div class="w-full max-w-[960px] mx-auto flex flex-col gap-12">
+<div class="flex flex-col gap-4 text-center md:text-left">
+<h2 class="text-primary font-bold uppercase tracking-wider text-sm">Our Process</h2>
+<h1 class="text-gray-900 dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
+                            How EcoFood Works
+                        </h1>
+<p class="text-gray-600 dark:text-[#9db9a1] max-w-xl">
+                            A simple, streamlined process designed to move food fast while it's still fresh and nutritious.
+                        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Step 1 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#3b543f] bg-white dark:bg-[#1c271d] p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">edit_note</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-gray-900 dark:text-white text-xl font-bold leading-tight">1. Post Food</h3>
+<p class="text-gray-600 dark:text-[#9db9a1] text-sm font-normal leading-relaxed">
+                                    Restaurants list surplus items in seconds. Simply add quantity, type, and pickup time window.
+                                </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#3b543f] bg-white dark:bg-[#1c271d] p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">notifications_active</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-gray-900 dark:text-white text-xl font-bold leading-tight">2. Connect</h3>
+<p class="text-gray-600 dark:text-[#9db9a1] text-sm font-normal leading-relaxed">
+                                    Nearby NGOs get notified immediately based on their needs and location preferences.
+                                </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#3b543f] bg-white dark:bg-[#1c271d] p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-gray-900 dark:text-white text-xl font-bold leading-tight">3. Pickup</h3>
+<p class="text-gray-600 dark:text-[#9db9a1] text-sm font-normal leading-relaxed">
+                                    Seamless pickup coordination with verification codes to ensure secure transfer.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-gray-200 dark:border-[#28392b] bg-white dark:bg-background-dark py-12 px-4 md:px-10 lg:px-40 mt-auto">
+<div class="max-w-[960px] mx-auto flex flex-col gap-8 md:gap-12">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="flex size-6 items-center justify-center rounded bg-primary text-background-dark">
+<span class="material-symbols-outlined text-lg">eco</span>
+</div>
+<span class="text-gray-900 dark:text-white font-bold text-xl">EcoFood</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-gray-500 dark:text-[#9db9a1] hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">Contact</a>
+<a class="text-gray-500 dark:text-[#9db9a1] hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">Privacy Policy</a>
+<a class="text-gray-500 dark:text-[#9db9a1] hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">Terms of Service</a>
+</div>
+<div class="flex gap-4">
+<a class="text-gray-400 dark:text-[#5e7a62] hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">alternate_email</span> <!-- Placeholder for social -->
+</a>
+<a class="text-gray-400 dark:text-[#5e7a62] hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">public</span> <!-- Placeholder for social -->
+</a>
+<a class="text-gray-400 dark:text-[#5e7a62] hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">rss_feed</span> <!-- Placeholder for social -->
+</a>
+</div>
+</div>
+<div class="text-center">
+<p class="text-gray-400 dark:text-[#5e7a62] text-sm">© 2024 EcoFood. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoFood - Restaurant Donor Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "primary-dark": "#0fb82b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                        "card-light": "#ffffff",
+                        "card-dark": "#18281b",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#2a382d",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a382d; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a4d3f; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-display transition-colors duration-200">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Sidebar -->
+<aside class="hidden md:flex flex-col w-64 h-full bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark flex-shrink-0">
+<!-- Logo Area -->
+<div class="p-6 flex items-center gap-3">
+<div class="size-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">EcoFood</h1>
+</div>
+<!-- Navigation -->
+<nav class="flex-1 px-4 flex flex-col gap-2 py-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary-dark dark:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">add_circle</span>
+<span class="text-sm font-medium">Post Food</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">list_alt</span>
+<span class="text-sm font-medium">Active Listings</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">local_shipping</span>
+<div class="flex flex-1 justify-between items-center">
+<span class="text-sm font-medium">Pickup Requests</span>
+<span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-bold">2</span>
+</div>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<!-- User Profile Snippet -->
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<div class="flex items-center gap-3 p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 cursor-pointer transition-colors">
+<div class="size-10 rounded-full bg-cover bg-center border border-border-light dark:border-border-dark" data-alt="Starbucks logo on a cup on a table" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0wYNehbbRH574RZiCMtXJP1Qcb8K5s-KcnTkE8AaDdHyB7fvnP3i4tPSEIeAp3iaxaXS73cAVBT2ZTMSwLaho1XDbty9LND3kz0osqsS6EQo98OjIq7d1NcX6z1OL-WWmn_v3C7_P2XDATSSXZzrQHoefRjgv3UP5MXpzBJY-9pN3Kpf_gi-BvE3YPfcwhF3SmAC2z-OJsOXbXzIePDwEajtfnGDYn8VCYLnYVzRlqzK4AsfB5-OiDk9G9YF2OM7xyYUMbe95qaM");'>
+</div>
+<div class="flex flex-col overflow-hidden">
+<p class="text-sm font-bold text-gray-900 dark:text-white truncate">Starbucks Downtown</p>
+<p class="text-xs text-gray-500 dark:text-gray-400 truncate">Donor Account</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-y-auto relative">
+<!-- Mobile Header (Visible only on small screens) -->
+<header class="md:hidden flex items-center justify-between p-4 bg-card-light dark:bg-card-dark border-b border-border-light dark:border-border-dark sticky top-0 z-20">
+<div class="flex items-center gap-2">
+<div class="text-primary"><span class="material-symbols-outlined">eco</span></div>
+<span class="font-bold text-lg">EcoFood</span>
+</div>
+<button class="text-gray-500"><span class="material-symbols-outlined">menu</span></button>
+</header>
+<div class="flex-1 max-w-7xl mx-auto w-full p-4 md:p-8 space-y-8">
+<!-- Page Heading -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="space-y-1">
+<h2 class="text-3xl font-black tracking-tight text-gray-900 dark:text-white">Welcome back, Starbucks</h2>
+<p class="text-gray-500 dark:text-gray-400">Track your sustainability impact and manage daily donations.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="size-10 rounded-lg flex items-center justify-center bg-white dark:bg-card-dark border border-border-light dark:border-border-dark text-gray-500 hover:text-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="h-10 px-6 rounded-lg bg-primary hover:bg-primary-dark text-[#052e16] font-bold text-sm shadow-lg shadow-primary/20 flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+<span>Post Food</span>
+</button>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat 1 -->
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl border border-border-light dark:border-border-dark shadow-sm hover:border-primary/50 transition-colors group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined">scale</span>
+</div>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">+12%</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Total Food Donated</p>
+<p class="text-2xl font-black text-gray-900 dark:text-white mt-1">1,240 <span class="text-sm font-normal text-gray-500">kg</span></p>
+</div>
+<!-- Stat 2 -->
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl border border-border-light dark:border-border-dark shadow-sm hover:border-primary/50 transition-colors group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">+15%</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Meals Provided</p>
+<p class="text-2xl font-black text-gray-900 dark:text-white mt-1">2,480</p>
+</div>
+<!-- Stat 3 -->
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl border border-border-light dark:border-border-dark shadow-sm hover:border-primary/50 transition-colors group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Active Listings</p>
+<p class="text-2xl font-black text-gray-900 dark:text-white mt-1">3</p>
+</div>
+<!-- Stat 4 -->
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl border border-amber-500/30 shadow-sm relative overflow-hidden">
+<div class="absolute right-0 top-0 w-16 h-16 bg-amber-500/10 rounded-bl-full -mr-4 -mt-4"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="p-2 bg-amber-100 dark:bg-amber-900/30 rounded-lg text-amber-600 dark:text-amber-400">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium relative z-10">Pending Pickups</p>
+<p class="text-2xl font-black text-gray-900 dark:text-white mt-1 relative z-10">2 <span class="text-sm font-normal text-amber-500 ml-1">Action needed</span></p>
+</div>
+</div>
+<!-- Charts & Activity Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Main Chart -->
+<div class="lg:col-span-2 bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark shadow-sm p-6 flex flex-col justify-between">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Donation Volume</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Last 30 days performance</p>
+</div>
+<div class="flex items-center gap-2 text-sm">
+<span class="size-3 rounded-full bg-primary"></span>
+<span class="text-gray-600 dark:text-gray-300">Food (kg)</span>
+</div>
+</div>
+<div class="w-full h-64 relative">
+<!-- Custom SVG Chart -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 40">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#13ec37" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#13ec37" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 35 C 10 35, 10 20, 20 20 C 30 20, 30 25, 40 25 C 50 25, 50 10, 60 10 C 70 10, 70 15, 80 15 C 90 15, 90 5, 100 5 V 40 H 0 Z" fill="url(#chartGradient)"></path>
+<path d="M0 35 C 10 35, 10 20, 20 20 C 30 20, 30 25, 40 25 C 50 25, 50 10, 60 10 C 70 10, 70 15, 80 15 C 90 15, 90 5, 100 5" fill="none" stroke="#13ec37" stroke-linecap="round" stroke-width="0.5"></path>
+</svg>
+<!-- X Axis Labels (Mock) -->
+<div class="flex justify-between text-xs text-gray-400 mt-2 font-medium">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+</div>
+</div>
+</div>
+<!-- Recent Activity List -->
+<div class="lg:col-span-1 bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark shadow-sm p-6 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Recent Activity</h3>
+<button class="text-primary text-sm font-semibold hover:underline">View All</button>
+</div>
+<div class="flex flex-col gap-4 overflow-y-auto max-h-[300px] pr-2 custom-scrollbar">
+<!-- Activity Item 1 -->
+<div class="flex gap-3 items-start">
+<div class="mt-1 size-8 rounded-full bg-blue-500/20 text-blue-500 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+</div>
+<div>
+<p class="text-sm font-medium text-gray-900 dark:text-gray-100">Pickup requested by <span class="font-bold">Feed The City</span></p>
+<p class="text-xs text-gray-500 mt-1">2 mins ago • Order #4291</p>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-3 items-start">
+<div class="mt-1 size-8 rounded-full bg-primary/20 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+</div>
+<div>
+<p class="text-sm font-medium text-gray-900 dark:text-gray-100">You posted <span class="font-bold">Day-old Pastries</span></p>
+<p class="text-xs text-gray-500 mt-1">2 hours ago • 15kg</p>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-3 items-start">
+<div class="mt-1 size-8 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-medium text-gray-900 dark:text-gray-100">Donation completed</p>
+<p class="text-xs text-gray-500 mt-1">Yesterday • NGO: Hope Center</p>
+</div>
+</div>
+<!-- Activity Item 4 -->
+<div class="flex gap-3 items-start">
+<div class="mt-1 size-8 rounded-full bg-primary/20 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+</div>
+<div>
+<p class="text-sm font-medium text-gray-900 dark:text-gray-100">You posted <span class="font-bold">Surplus Sandwiches</span></p>
+<p class="text-xs text-gray-500 mt-1">2 days ago • 8kg</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Action Card -->
+<div class="w-full bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark shadow-sm overflow-hidden flex flex-col md:flex-row">
+<div class="p-6 md:p-8 flex flex-col justify-center flex-1 gap-4">
+<div class="flex items-center gap-2 text-amber-500">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-sm font-bold uppercase tracking-wider">Quick Action</span>
+</div>
+<div>
+<h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2">Inventory Running Low?</h3>
+<p class="text-gray-600 dark:text-gray-400">Your active listings are below average for this time of the week. Post surplus food now to help local NGOs plan their pickups efficiently.</p>
+</div>
+<div class="flex gap-3 mt-2">
+<button class="px-5 py-2.5 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold text-sm hover:opacity-90 transition-opacity">
+                                Create New Donation
+                            </button>
+<button class="px-5 py-2.5 rounded-lg border border-border-light dark:border-border-dark text-gray-600 dark:text-gray-300 font-medium text-sm hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
+                                Dismiss
+                            </button>
+</div>
+</div>
+<div class="w-full md:w-1/3 min-h-[200px] md:min-h-full bg-cover bg-center relative" data-alt="Close up of fresh vegetables and food ingredients in a crate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAIwi9sIK-9BfxKalUxi98cSHwiPnrrbf34XaTyjdRSOeyBD4pYPlAnwsBq8hg_-aJD7KvGb7Ujw1oBagop86eJcK-zB91Pz_wAbqGY_QV9qPbmwKiMyts9xqbJ-Gfr0W2I3AXHdm2FElUb8ij-A2jtVFTAnjqNReh5lFmtVi6viZkxQtXec24jL5HC_v8pI6qla1snUNVwgzn5LQ4g2Lbm6dNupb8ijINwMxk8fLRnPZaB-4oEcTwbzmuUuVTAy7UrNCQJ2vLdYNU");'>
+<div class="absolute inset-0 bg-gradient-to-r from-card-light dark:from-card-dark to-transparent md:bg-gradient-to-l"></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
