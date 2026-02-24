@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file.
 - Donation statistics computation API
 - Expiring donations alert system
 - Donation status constants and helpers
+- Analytics dashboard module for food waste metrics
+- Data visualization utilities for donation trends
+- Real-time dashboard API endpoints
+- Notification helper with types, priorities, and formatters
 
 ### Changed
 - Updated project documentation
