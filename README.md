@@ -1,6 +1,6 @@
  # EcoFood
 
-## Overview ✅
+## Overview 
 EcoFood is a two-part application:
 
 - **Backend:** Node.js + Express API (default port 4005)
@@ -24,7 +24,7 @@ This repository includes Docker tooling to run the full stack locally and for si
 
 ---
 
-## 1. Getting Started 🛠️
+## 1. Getting Started 
 1. Clone the repo:
    - `git clone <repo_url>`
 2. Install dependencies:
@@ -33,7 +33,7 @@ This repository includes Docker tooling to run the full stack locally and for si
 
 ---
 
-## 2. Prerequisites ⚙️
+## 2. Prerequisites 
 - Node.js 18+ / 20 recommended
 - Docker & Docker Compose (for containerized runs)
 - MongoDB (local or via Docker)
@@ -41,7 +41,7 @@ This repository includes Docker tooling to run the full stack locally and for si
 
 ---
 
-## 3. Local Development 🚀
+## 3. Local Development 
 
 ### Backend
 - Copy env template locally:
@@ -65,7 +65,7 @@ This repository includes Docker tooling to run the full stack locally and for si
 
 ---
 
-## 4. Docker & Docker Compose 🐳
+## 4. Docker & Docker Compose 
 - Quick (one command):
   - `docker compose up --build`
 - What it runs:
@@ -78,7 +78,7 @@ This repository includes Docker tooling to run the full stack locally and for si
 
 ---
 
-## 5. Environment Variables & Secrets 🔐
+## 5. Environment Variables & Secrets 
 - Do NOT commit real secrets. Use `.env.example` as a template.
 - Important backend vars (in `backend/.env`):
   - `MONGODB_URI` — e.g., `mongodb://localhost:27017/ecofood` or `mongodb://mongo:27017/ecofood` (compose)
@@ -94,8 +94,7 @@ This repository includes Docker tooling to run the full stack locally and for si
 > `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`
 
 ---
-
-## 6. Running Tests & Utilities ✅
+## 6. Running Tests & Utilities 
 - The repo includes helper scripts (e.g., `test-chat.js`, `test-grok.js`). Run them with:
   - `node test-chat.js` (from repo root if applicable)
 - Add or extend automated tests as needed.
